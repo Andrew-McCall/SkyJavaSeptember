@@ -21,6 +21,13 @@ public class Driver extends Person {
             return -1;
         }
 
+        if (this.car.IsConvertible()){
+            Convertible car = (Convertible) this.car;
+            if (!car.GetIsRoofDown()){
+                car.ToggleSunRoof();
+            }
+        }
+
         return this.car.IncreaseMiles(miles);
     }
 

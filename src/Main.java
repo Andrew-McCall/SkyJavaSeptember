@@ -3,27 +3,6 @@ import java.util.Scanner;
 public class Main { // Everything secretly inherts from Object
     public static void main(String[] args) {
 
-        // 1 // Car Class
-        //  - colour
-        //  - reg
-        //  - model
-        //  - make
-        //  - miles
-        //  + increaseMiles
-        //  + Other Getters and Setters
-
-        // 2 // Driver Class
-        //  - Car
-        //  + Drive(miles)
-        //  + Car Setter and Getter
-
-        // 3 // Instantiate the Car and Driver. Test the methods
-
-        // Extension
-        // 4 // Position Class (double x, double y)
-        // 5 // Give Car a position which is edited by drive
-        // 6 // ToString, Equals, HashCode
-
         // Part 2
         // Car Parent Class
         // 1 // Create two child classes that extend Car: Supercar, Convertible
@@ -33,32 +12,37 @@ public class Main { // Everything secretly inherts from Object
 
 
         Car c1 = new Car("Black", "ABC", "Leaf", "Nissan", 45233);
-        Car c2 = new Car("DFE");
-
         Driver driver = new Driver();
-
-        System.out.println(driver.DriveCar(99));  // -1
-
         driver.SetCar(c1);
-        System.out.println(driver.DriveCar(99));  // 45322
 
-        driver.SetCar(c2);
-        System.out.println(driver.DriveCar(99));  // 99
+        System.out.println(driver.DriveCar(97));
 
-        System.out.println(c1.getMiles());             // 45322
+        Convertible con1 = new Convertible("Hot Pink", "ABC", "Micra", "Nissan", 43);
+        driver.SetCar(con1);
 
-        System.out.println(c1.getPosition());
+        System.out.println(con1.GetIsRoofDown());     // false
+        System.out.println(driver.DriveCar(17)); // 60 - also changed the sunroof
+        System.out.println(con1.GetIsRoofDown());     // true
+        System.out.println(driver.DriveCar(17)); // 77
+        System.out.println(con1.GetIsRoofDown());     // true
 
-        Main m = new Main();
-        System.out.println(m.toString());
-        System.out.println(((Object) m).toString());
+//        Main m = new Main();
+//        System.out.println(m.toString());
+//        System.out.println(((Object) m).toString());
 
-        Object o = new Main();
-        System.out.println(o.toString());
+        // Length cannot be change
+        int[] myNumbers = new int[5];
 
-        System.out.println(driver.getName());
-        driver.Birthday();
-        System.out.println(driver.getAge());
+        myNumbers[0] = -1;
+        myNumbers[2] = 523;
+
+                // Arrays start a 0!
+        for (int i = 0; i < myNumbers.length; i++){
+            System.out.println( myNumbers[i] );
+        }
+
+        Car[] Garage = new Car[65]; // All equal null;
+        Car[] Garage2 = {c1, con1, new Car("Lol")}; // Prepopulated Array
 
     }
 

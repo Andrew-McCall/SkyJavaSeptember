@@ -69,6 +69,9 @@ public class Car {
         return position;
     }
 
+    public boolean IsConvertible(){
+        return this.getClass() == Convertible.class;
+    }
 
     @Override
     public boolean equals(Object o) {
