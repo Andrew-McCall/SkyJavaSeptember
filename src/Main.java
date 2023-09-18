@@ -1,62 +1,36 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        // Calculator e.g
-//        Calculator(1, '+', 2);  // = 3
-//        Calculator(4, '-', 2);  // = 2
-//        Calculator(12, '*', 2); // = 24
-//        Calculator(8, '/', 2);  // = 4
+        Calculator c = new Calculator();
+        System.out.println(c.Add(5, 20));
+        System.out.println(c.Subtract(6, 20));
+        System.out.println(c.Multiply(7, 20));
+        System.out.println(c.Divide(8, 20));
 
-        // 1 - Create a calculator method which takes 2 numbers and a condition
-        // 2 - Print the answer
-        // Extensions
-        // 3 - Add % and ^ (modlus and power) operations
-        // 4 - Add a text input to allow inputs for the numbers
-        // 5 - Add a text input to allow input for the operation
-        Scanner s = new Scanner(System.in);
-        double a = s.nextDouble();
-        double b = s.nextDouble();
-        char o = s.next().charAt(0);
+        System.out.println(c.getLastAnswer());
+        c.Add(1,2);
+        System.out.println(c.getLastAnswer());
 
-        System.out.println(Calculator(a, o, b));
+        Calculator c2 = new Calculator();
+        c2.Add(1,5);
 
-//        System.out.println(Calculator(10, '+', 20));
-//        System.out.println(Calculator(10, '-', 20));
-//        System.out.println(Calculator(10, '*', 20));
-//        System.out.println(Calculator(10, '/', 20));
-//
-////        System.out.println(Calculator(10, 'f', 0));
-//        System.out.println(Calculator(10, '^', 2));
-//        System.out.println(Calculator(10, '%', 20));
+        System.out.println(c.getLastAnswer() == c2.getLastAnswer());
+
+        Calculator c10 = new Calculator();
+        Calculator c20 = c10;
+
+        c20.Add(20, 20);
+
+        System.out.println(c10.getLastAnswer());
+        System.out.println(c20.getLastAnswer());
+
+        System.out.println(c10 == c20);
+
+
+        System.out.println(new Calculator() == new Calculator());
+        System.out.println(new Calculator().equals(new Calculator()));
 
     }
-
-
-    private static double Calculator(double numberOne, char operation, double numberTwo) throws Exception {
-        switch (operation){
-            case '+':
-                return numberOne+numberTwo;
-            case '-':
-                return numberOne-numberTwo;
-            case '*':
-                return numberOne*numberTwo;
-            case '/':
-                if (numberTwo == 0){
-                    throw new Exception("Can't divide by zero!");
-                }
-                return numberOne/numberTwo;
-            case '^':
-                return Math.pow(numberOne, numberTwo);
-            case '%':
-                if (numberTwo == 0){
-                    throw new Exception("Can't modulo by zero!");
-                }
-                return numberOne%numberTwo;
-        }
-
-        throw new Exception("Invalid Operation");
-    }
-
 }
