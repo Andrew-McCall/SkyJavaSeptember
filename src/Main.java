@@ -3,34 +3,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Calculator c = new Calculator();
-        System.out.println(c.Add(5, 20));
-        System.out.println(c.Subtract(6, 20));
-        System.out.println(c.Multiply(7, 20));
-        System.out.println(c.Divide(8, 20));
+        // 1 // Car Class
+        //  - colour
+        //  - reg
+        //  - model
+        //  - make
+        //  - miles
+        //  + increaseMiles
+        //  + Other Getters and Setters
 
-        System.out.println(c.getLastAnswer());
-        c.Add(1,2);
-        System.out.println(c.getLastAnswer());
+        // 2 // Driver Class
+        //  - Car
+        //  + Drive(miles)
+        //  + Car Setter and Getter
 
-        Calculator c2 = new Calculator();
-        c2.Add(1,5);
+        // 3 // Instantiate the Car and Driver. Test the methods
 
-        System.out.println(c.getLastAnswer() == c2.getLastAnswer());
+        // Extension
+        // 4 // Position Class (double x, double y)
+        // 5 // Give Car a position which is edited by drive
+        // 6 // ToString, Equals, HashCode
 
-        Calculator c10 = new Calculator();
-        Calculator c20 = c10;
+        Car c1 = new Car("Black", "ABC", "Leaf", "Nissan", 45233);
+        Car c2 = new Car("DFE");
 
-        c20.Add(20, 20);
-
-        System.out.println(c10.getLastAnswer());
-        System.out.println(c20.getLastAnswer());
-
-        System.out.println(c10 == c20);
-
-
-        System.out.println(new Calculator() == new Calculator());
-        System.out.println(new Calculator().equals(new Calculator()));
+        System.out.println(c1.getMiles());
+        System.out.println(c2.getMiles());
 
     }
 }
