@@ -7,6 +7,7 @@ public class Car {
     private String model;
     private String make;
     private double miles;
+    private Position position = new Position(0,0);
 
     // public Car(){}
     public Car(String colour, String reg, String model, String make, double miles){
@@ -15,10 +16,11 @@ public class Car {
         this.model = model;
         this.reg = reg;
         this.colour = colour;
+//        this.position = new Position(miles, 0);
     }
 
     public Car(String reg){
-        this("Grey", reg, "Micra", "Nissan", 0);
+        this("Grey", reg, "Micra", "Nissan", 0); // Uses other constructor
     }
 
     public void SetColour(String colour){
@@ -59,8 +61,14 @@ public class Car {
 
     public double IncreaseMiles(double extraMiles){
         this.miles += extraMiles;
+        this.position.setX(this.position.getX() + extraMiles);
         return this.miles;
     }
+
+    public Position getPosition() {
+        return position;
+    }
+
 
     @Override
     public boolean equals(Object o) {

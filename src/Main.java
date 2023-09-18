@@ -27,8 +27,19 @@ public class Main {
         Car c1 = new Car("Black", "ABC", "Leaf", "Nissan", 45233);
         Car c2 = new Car("DFE");
 
-        System.out.println(c1.getMiles());
-        System.out.println(c2.getMiles());
+        Driver driver = new Driver();
+
+        System.out.println(driver.DriveCar(99));  // -1
+
+        driver.SetCar(c1);
+        System.out.println(driver.DriveCar(99));  // 45322
+
+        driver.SetCar(c2);
+        System.out.println(driver.DriveCar(99));  // 99
+
+        System.out.println(c1.getMiles());             // 45322
+
+        System.out.println(c1.getPosition());
 
     }
 }

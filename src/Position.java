@@ -16,6 +16,11 @@ public class Position {
         this.x = x;
     }
 
+    @Override
+    public String toString() {
+        return "Position("+x+", "+y+")";
+    }
+
     public double getY(){
         return y;
     }
