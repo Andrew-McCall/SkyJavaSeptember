@@ -1,13 +1,12 @@
 import java.util.Objects;
 
-public class Car {
+public class Car extends Vehicle{
 
     private String colour;
     private String reg;
     private String model;
     private String make;
     private double miles;
-    private Position position = new Position(0,0);
 
     // public Car(){}
     public Car(String colour, String reg, String model, String make, double miles){
@@ -61,13 +60,11 @@ public class Car {
 
     public double IncreaseMiles(double extraMiles){
         this.miles += extraMiles;
-        this.position.setX(this.position.getX() + extraMiles);
+        this.setPosition(this.getPosition().getX()+extraMiles, this.getPosition().getY());
         return this.miles;
     }
 
-    public Position getPosition() {
-        return position;
-    }
+
 
     public boolean IsConvertible(){
         return this.getClass() == Convertible.class;
