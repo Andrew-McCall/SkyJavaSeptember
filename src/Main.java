@@ -4,6 +4,16 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Create a IDrivable Interface
+        // Make car implement IDrivable
+        // Make driver store only an IDrivable
+        // Update driver's Drive Method to use IDriviable.Drive Behaviour
+        // Keep the (BP) convertible exception handling by driver
+        /// EXT
+        // Create a non car class which is IDriviable (Lawn-mower)
+        // Test it out and add what you'd like
+
+
         Car c1 = new BondCar();
 //        c1 = new Car("123");
 
@@ -35,6 +45,15 @@ public class Main {
         IComerericalPlane cp1 = bo1;
 
 //        System.out.println(f1.);
+
+
+        Vehicle v1 = new Vehicle();
+        VDriver vd1 = new VDriver();
+        vd1.setVehicle(v1);
+
+        vd1.Drive(10);
+
+        System.out.println(v1.getPosition());
 
 
     }

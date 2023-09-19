@@ -9,4 +9,9 @@ public class Vehicle {
         this.position.setY(y);
     }
 
+    public double Move(double miles){
+        setPosition(getPosition().getX() + miles, getPosition().getY());
+        return getPosition().getX();
+    }
+
 }

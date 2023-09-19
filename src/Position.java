@@ -16,17 +16,17 @@ public class Position {
         this.x = x;
     }
 
-    @Override
-    public String toString() {
-        return "Position("+x+", "+y+")";
-    }
-
     public double getY(){
         return y;
     }
 
     public void setY(double y){
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Position("+x+", "+y+")";
     }
 
 
