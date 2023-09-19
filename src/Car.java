@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle implements IDrivable{
 
     private String colour;
     private String reg;
@@ -64,6 +64,10 @@ public class Car extends Vehicle{
         return this.miles;
     }
 
+    @Override
+    public double Drive(double miles){
+        return IncreaseMiles(miles);
+    }
 
 
     public boolean IsConvertible(){
@@ -82,4 +86,6 @@ public class Car extends Vehicle{
     public int hashCode() {
         return Objects.hash(colour, reg, model, make, miles);
     }
+
+
 }

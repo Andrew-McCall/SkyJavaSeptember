@@ -1,10 +1,12 @@
 public class Driver extends Person {
 
-    private Car car;    // car can be null
-//    private int number; // primitives always have a value
+    private IDrivable drivable;
 
     public Driver(){
         super("Andrew", 2);
+    }
+    public Driver(String name, int age){
+        super(name, age);
     }
 
     @Override
@@ -12,32 +14,30 @@ public class Driver extends Person {
         return "Driver " + super.getName();
     }
 
-    public Driver(String name, int age){
-        super(name, age);
-    }
 
-    public double DriveCar(double miles){
-        if (this.car == null) {
+    public double DriveDrivable(double miles){
+        System.out.println(this.drivable);
+        if (this.drivable == null) {
             return -1;
         }
 
-        if (this.car.IsConvertible()){
-            Convertible car = (Convertible) this.car;
-            if (!car.GetIsRoofDown()){
-                car.ToggleSunRoof();
+        if (this.drivable instanceof Convertible){
+            Convertible local = (Convertible) this.drivable;
+            if (!local.GetIsRoofDown()){
+                local.ToggleSunRoof();
             }
         }
 
-        return this.car.IncreaseMiles(miles);
+        return this.drivable.Drive(miles);
     }
 
 
-    public void SetCar(Car car){
-        this.car = car;
+    public void SetDrivable(IDrivable drivable){
+        this.drivable = drivable;
     }
 
-    public Car GetCar(){
-        return this.car;
+    public IDrivable GetCar(){
+        return this.drivable;
     }
 
 }
