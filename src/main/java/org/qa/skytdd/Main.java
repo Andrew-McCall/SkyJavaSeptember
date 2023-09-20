@@ -1,91 +1,68 @@
 package org.qa.skytdd;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
 
-//        ArrayDemo();
-//        ListDemo();
+        // Lists
+        // ArrayList
+        // Vector
+        // LinkedList
 
-        Bank myBank = new Bank();
+        List<List<Integer>> my2dList = new ArrayList<>();
 
-        try {
-            myBank.AddAccount(new BankAccount(423521, 138));
-            myBank.AddAccount(new BankAccount(5235621, 142));
-            myBank.AddAccount(new BankAccount(52345621, 320));
-        }catch (Exception e){
-            System.out.println(e);
+        List<Integer> row1 = new ArrayList<>();
+        row1.add(10);
+        row1.add(20);
+        row1.add(30);
+        row1.add(40);
+
+        my2dList.add(row1);
+        my2dList.get(0).set(2,52);
+
+        int[][] my2dArray = new int[5][5];
+        my2dArray[0][2] = 52;
+
+
+        // Sets are lists of unique items. They have better performance. Especially reading
+        Set<Integer> myNumbers = new HashSet<>();
+        myNumbers.add(1);
+        myNumbers.add(1);
+        myNumbers.add(23);
+        myNumbers.add(52);
+        myNumbers.add(19);
+        myNumbers.add(52);
+
+        for (Integer i : myNumbers) // Collection
+        {
+            System.out.println(i);
         }
 
-        System.out.println(myBank.average());
+        Set<String> myStrings = new TreeSet<>();
+        myStrings.add("Hello");
+        myStrings.add("Hello");
+        myStrings.add("World");
+        myStrings.add("Jon");
+        myStrings.add("Andrew");
 
-        myBank.DeleteByAccountNumber(52345621);
-
-        System.out.println(myBank.average());
-
-        myBank.PrintAlls();
-
-    }
-
-    public static void ListDemo(){
-        // Collection Interface -> List Interface -> ArrayList/Vector
-
-        // Collection's (Interfaces) use Generics <>
-        // Generics are asking for a DataType (Should be Non-Primitive)
-        // List<TYPE>
-        ArrayList<String> myStrings3 = new ArrayList<String>();
-
-        myStrings3.add("Hello World");
-        myStrings3.add("Hello World");
-
-        System.out.println(myStrings3.get(0)); // String[].... [0]
-        System.out.println(myStrings3.size()); // String[].... .length
-
-        for (String s : myStrings3){
+        for (String s : myStrings){
             System.out.println(s);
         }
 
-        Vector<Integer> myNumbers = new Vector<Integer>();
+        // Maps
+        Map<Integer, String> myDictionary = new HashMap<>(); // Python Dictionary
+        // Index is a type you give
+        myDictionary.put(1, "One");
+        myDictionary.put(2, "Three");
+        myDictionary.put(5, "THIS IS FIVES TEXT");
 
-        myNumbers.add(6256);
-        myNumbers.add(2625546);
-        myNumbers.add(3625256);
-        myNumbers.add(162156);
-
-        for (int i = 0; i < myNumbers.size(); i++){
-            System.out.println(myNumbers.get(i));
-        }
-
-        List<Point> myPoints = new ArrayList<Point>();
-        myPoints.add(new Point(0,0));
-        System.out.println(myPoints.get(0));
-
-        LinkedList<Double> doubles = new LinkedList<>();
-        doubles.add(2.532);
-        System.out.println(doubles.get(0));
+        System.out.println(myDictionary.get(2));
+        System.out.println(myDictionary.get(5));
+        System.out.println(myDictionary.get(6));
 
     }
-    public static void ArrayDemo(){
-        // Arrays are immutable, just like strings
-        // Cant's change the length of an array. Everytime you change a string, a new one is created
-        int[] myNumbers = new int[5];      // primitives default to 0/default value
-        Point[] myStrings = new Point[5];  // all non-primitives default to null
 
-        System.out.println(myNumbers.length);
-        System.out.println(myNumbers);
-
-        for (int x : myNumbers){
-            System.out.println(x);
-        }
-
-        for (Point p: myStrings){
-            System.out.println(p);
-        }
-    }
 
 }
