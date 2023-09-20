@@ -2,7 +2,7 @@ package org.qa.skytdd;
 
 import java.util.Objects;
 
-public class BankAccount {
+public class BankAccount extends Object {
 
     public static int AccountCounter;
 
@@ -64,6 +64,12 @@ public class BankAccount {
     void setAccountName(String accountName) {
         AccountName = accountName;
     }
+
+    @Override
+    public String toString(){
+            return "BA: AccountNumber: " + this.AccountNumber + ", Balance: "+ this.Balance+ ", AccountName: "+this.AccountName;
+    }
+
 
     @Override
     public boolean equals(Object o) {

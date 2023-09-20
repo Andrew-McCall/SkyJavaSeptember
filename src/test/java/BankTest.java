@@ -1,7 +1,6 @@
 import junit.framework.*;
-import org.junit.After;
+import org.junit.*;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.qa.skytdd.Bank;
 import org.qa.skytdd.BankAccount;
@@ -10,24 +9,47 @@ import java.util.List;
 
 public class BankTest {
 
-    //  Update Bank Class
-    /// Create BankTest
-    //  Setup the bank in an @Before
-    //  findAccount
-    //  AddAccount
-
-    // Ext - Implement and Test
-    // add exception when duplicate account is added
-    // return an array of all accounts
-
     private Bank testBank;
 
+    // @ Before runs before EVERY TEST
     @Before
     public void Setup() throws Exception {
         testBank = new Bank();
         testBank.AddAccount(new BankAccount(1));
         testBank.AddAccount(new BankAccount(2, 10));
         testBank.AddAccount(new BankAccount(3, 100, "andrew"));
+    }
+
+    //@BeforeClass // Runs once before All. @BeforeAll (Junit 5 name)
+
+
+    @Test
+    public void AddAccount(){
+        try{
+            testBank.AddAccount(new BankAccount(5, 1523, "gjhgelg"));
+            if (testBank.DeleteByAccountNumber(5) == null){
+                Assert.fail();
+            }
+        }catch (Exception e){
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void TestToArray(){
+        Assert.assertEquals(3, testBank.getArray().length);
+    }
+
+    @Test
+    public void Average(){
+        double expected = 110.0/3.0;
+        Assert.assertEquals(expected, testBank.average(), 0.0001);
+    }
+
+    @Test
+    public void DeleteByNumber() throws Exception {
+        BankAccount deleted = testBank.DeleteByAccountNumber(2);
+        Assert.assertEquals(deleted, new BankAccount(2, 10));
     }
 
     @Test

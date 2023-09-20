@@ -9,8 +9,26 @@ import java.util.Vector;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayDemo();
-        ListDemo();
+//        ArrayDemo();
+//        ListDemo();
+
+        Bank myBank = new Bank();
+
+        try {
+            myBank.AddAccount(new BankAccount(423521, 138));
+            myBank.AddAccount(new BankAccount(5235621, 142));
+            myBank.AddAccount(new BankAccount(52345621, 320));
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+        System.out.println(myBank.average());
+
+        myBank.DeleteByAccountNumber(52345621);
+
+        System.out.println(myBank.average());
+
+        myBank.PrintAlls();
 
     }
 
