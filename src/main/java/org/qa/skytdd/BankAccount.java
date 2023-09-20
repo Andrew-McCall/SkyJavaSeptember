@@ -1,5 +1,7 @@
 package org.qa.skytdd;
 
+import java.util.Objects;
+
 public class BankAccount {
 
     public static int AccountCounter;
@@ -61,5 +63,18 @@ public class BankAccount {
 
     void setAccountName(String accountName) {
         AccountName = accountName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankAccount that = (BankAccount) o;
+        return AccountNumber == that.AccountNumber && Double.compare(that.Balance, Balance) == 0 && Objects.equals(AccountName, that.AccountName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(AccountNumber, Balance, AccountName);
     }
 }
