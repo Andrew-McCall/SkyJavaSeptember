@@ -2,7 +2,7 @@ package org.qa.skytdd;
 
 import java.util.Objects;
 
-public class BankAccount extends Object {
+public class BankAccount extends Object implements Comparable<BankAccount> {
 
     public static int AccountCounter;
 
@@ -85,5 +85,10 @@ public class BankAccount extends Object {
     @Override
     public int hashCode() {
         return Objects.hash(AccountNumber);
+    }
+
+    @Override
+    public int compareTo(BankAccount o) {
+        return  this.getAccountNumber() - o.getAccountNumber();
     }
 }

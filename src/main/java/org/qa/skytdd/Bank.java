@@ -1,13 +1,20 @@
 package org.qa.skytdd;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
-public class Bank {
+public class Bank implements Iterable<BankAccount>{
 
     private List<BankAccount> Accounts = new ArrayList<BankAccount>();
 
     public Bank(){}
+
+    public void Sort(){
+        this.Accounts.sort(BankAccount::compareTo);
+    }
 
     public BankAccount findAccount(int AccountNumber){
 
@@ -88,4 +95,18 @@ public class Bank {
         return  Accounts;
     }
 
+    @Override
+    public Iterator<BankAccount> iterator() {
+        return this.Accounts.iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super BankAccount> action) {
+        Iterable.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<BankAccount> spliterator() {
+        return Iterable.super.spliterator();
+    }
 }
