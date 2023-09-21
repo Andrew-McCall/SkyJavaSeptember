@@ -1,67 +1,65 @@
 package org.qa.skytdd;
 
+import javafx.geometry.Point2D;
+
 import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) {
 
-        // Lists
-        // ArrayList
-        // Vector
-        // LinkedList
+        // Using a map. create a method which takes a decimal from -1000000000, to +1000000000 and translates it into english.
+        // e.i pretty bank account readout. 12354.5 -> twelve thousand, three hundred, fifty-four and 50p
+        // Write tests for that method
 
-        List<List<Integer>> my2dList = new ArrayList<>();
+        //        NumberToText t = new NumberToText();
+        //        System.out.println(t.Translate(5));
+        //        System.out.println(t.Translate(14));
+        //        System.out.println(t.Translate(19));
+        //        System.out.println(t.Translate(20));
+        //        System.out.println(t.Translate(36));
+        //        System.out.println(t.Translate(47));
+        //        System.out.println(t.Translate(0));
+        //        System.out.println(t.Translate(39));
 
-        List<Integer> row1 = new ArrayList<>();
-        row1.add(10);
-        row1.add(20);
-        row1.add(30);
-        row1.add(40);
+        Wrapper<Integer> w1 = new Wrapper<>(354);
 
-        my2dList.add(row1);
-        my2dList.get(0).set(2,52);
+//      ERROR:  Wrapper<Integer> w2 = new Wrapper<>("354"); Type SAFE
 
-        int[][] my2dArray = new int[5][5];
-        my2dArray[0][2] = 52;
+        Wrapper<String> w3 = new Wrapper<>("354");
+        Wrapper<BankAccount> w4 = new Wrapper<>(new BankAccount());
 
 
-        // Sets are lists of unique items. They have better performance. Especially reading
-        Set<Integer> myNumbers = new HashSet<>();
-        myNumbers.add(1);
-        myNumbers.add(1);
-        myNumbers.add(23);
-        myNumbers.add(52);
-        myNumbers.add(19);
-        myNumbers.add(52);
+        IndexMap<String> map = new IndexMap<>();
+        map.AddItem(1, "Hello");
+        map.AddItem(2, "World");
+        map.AddItem(5235, "Secret");
 
-        for (Integer i : myNumbers) // Collection
-        {
-            System.out.println(i);
-        }
+        System.out.println(map.GetItem(5235));
 
-        Set<String> myStrings = new TreeSet<>();
-        myStrings.add("Hello");
-        myStrings.add("Hello");
-        myStrings.add("World");
-        myStrings.add("Jon");
-        myStrings.add("Andrew");
+        AndrewMap<String, Point2D> myMap = new AndrewMap<>();
+        myMap.put("Andrew", new Point2D(421, 521));
+        myMap.put("Home", new Point2D(8121, 121));
+        myMap.put("World", new Point2D(121, 921));
 
-        for (String s : myStrings){
-            System.out.println(s);
-        }
+        System.out.println(myMap.get("Andrew"));
+        System.out.println(myMap.get("World"));
 
-        // Maps
-        Map<Integer, String> myDictionary = new HashMap<>(); // Python Dictionary
-        // Index is a type you give
-        myDictionary.put(1, "One");
-        myDictionary.put(2, "Three");
-        myDictionary.put(5, "THIS IS FIVES TEXT");
+        AndrewMap<String, String> myMap2 = new AndrewMap<>();
+        myMap2.put("Andrew", "geg");
+        myMap2.put("Home", "vgsvx4");
+        myMap2.put("World", " vsd");
 
-        System.out.println(myDictionary.get(2));
-        System.out.println(myDictionary.get(5));
-        System.out.println(myDictionary.get(6));
+        System.out.println(myMap2.get("Andrew"));
+        System.out.println(myMap2.get("World"));
 
+        // Create a Wrapper Generic Class <T>
+        // Add a second property of type <E> to the class
+        // Wrapper<Integer, String>... Stores one of each. Getters and Setters
+        // Create an interface that takes in a single generic type
+        // implement that interface and set the type   - Class
+        // implement that interface and pass a generic - Class
+        // EXTRA: take note of how the idea knows the type in the editor
     }
 
 

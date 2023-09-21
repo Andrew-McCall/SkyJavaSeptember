@@ -66,10 +66,13 @@ public class BankAccount extends Object {
     }
 
     @Override
-    public String toString(){
-            return "BA: AccountNumber: " + this.AccountNumber + ", Balance: "+ this.Balance+ ", AccountName: "+this.AccountName;
+    public String toString() {
+        return "BankAccount{" +
+                "AccountNumber=" + AccountNumber +
+                ", Balance=" + Balance +
+                ", AccountName='" + AccountName + '\'' +
+                '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -81,6 +84,6 @@ public class BankAccount extends Object {
 
     @Override
     public int hashCode() {
-        return Objects.hash(AccountNumber, Balance, AccountName);
+        return Objects.hash(AccountNumber);
     }
 }
